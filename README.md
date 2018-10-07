@@ -128,7 +128,7 @@ https://github.com/eosrei/twemoji-color-font/releases
    installs like any other font and can be specifically selected, but OS X will
    default to the `Apple Color Emoji` font for emojis.
 2. `TwitterColorEmoji-SVGinOT-OSX-1.4.zip` - A hack to replace the `Apple
-   Color Emoji` font by [using the same internal name][10]. Install and accept
+   Color Emoji` font by [using the same internal name][12]. Install and accept
    the warning in Font Book.
 
 A [Homebrew](http://brew.sh) package is available.
@@ -140,7 +140,7 @@ brew tap caskroom/fonts
 brew cask install font-twitter-color-emoji
 ```
 
-[10]:http://www.macissues.com/2014/11/21/how-to-change-the-default-system-font-in-mac-os-x/
+[12]:http://www.macissues.com/2014/11/21/how-to-change-the-default-system-font-in-mac-os-x/
 
 *Reiterating: Only FireFox supports the SVGinOT color emoji for now. Safari and
 Chrome will use the fallback black and white emoji.*
@@ -199,9 +199,9 @@ Requires:
 * FontForge 20160405+
 * SVGO
 * make
-* [SCFBuild][11] *(Created for this project!)*
+* [SCFBuild][13] *(Created for this project!)*
 
-[11]: https://github.com/eosrei/scfbuild
+[13]: https://github.com/eosrei/scfbuild
 
 Setup and build on Ubuntu 14.04 LTS:
 ```sh
