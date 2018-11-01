@@ -1,3 +1,11 @@
+fonts-twemoji-svginot (11.2.0-1) bionic; urgency=medium
+
+  * Update to twemoji 11.2.0.
+  * Switched version numbers to match upstream twemoji which has switched
+    version numbers to match the unicode/emoji version numbers.
+
+ -- Brad Erickson <eosrei@gmail.com>  Thu, 1 Nov 2018 12:17:11 -0700
+
 fonts-twemoji-svginot (1.4-1) xenial; urgency=medium
 
   * Update to twemoji 2.5.0.
