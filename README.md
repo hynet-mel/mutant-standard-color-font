@@ -201,19 +201,19 @@ Requires:
 * make
 * [SCFBuild][13] *(Created for this project!)*
 
-[13]: https://github.com/eosrei/scfbuild
+[13]: https://github.com/13rac1/scfbuild
 
-Setup and build on Ubuntu 14.04 LTS:
+Setup and build on Ubuntu 18.04 LTS:
 ```sh
-sudo add-apt-repository ppa:fontforge/fontforge
 sudo apt-get update
-sudo apt-get install inkscape potrace npm nodejs nodejs-legacy fontforge \
-python-fontforge python-pip python-yaml imagemagick git make
+sudo apt-get install inkscape potrace npm nodejs fontforge \
+devscripts python-fontforge python-pip python-yaml imagemagick \
+git make debhelper build-essential
 sudo npm install -g svgo
 sudo pip install fonttools
 git clone https://github.com/eosrei/twemoji-color-font.git
 cd twemoji-color-font
-git clone https://github.com/eosrei/scfbuild.git SCFBuild
+git clone https://github.com/13rac1/scfbuild.git SCFBuild
 make -j 4
 ```
 
