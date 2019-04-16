@@ -8,7 +8,7 @@ TMP := /dev/shm
 # Where to find scfbuild?
 SCFBUILD := SCFBuild/bin/scfbuild
 
-VERSION := 11.2.0
+VERSION := 12.0.1
 FONT_PREFIX := TwitterColorEmoji-SVGinOT
 REGULAR_FONT := build/$(FONT_PREFIX).ttf
 REGULAR_PACKAGE := build/$(FONT_PREFIX)-$(VERSION)
@@ -34,9 +34,12 @@ SVG_STAGE_FILES := $(patsubst $(SVG_EXTRA)/%.svg, build/stage/%.svg, $(SVG_STAGE
 SVG_BW_FILES := $(patsubst build/stage/%.svg, build/svg-bw/%.svg, $(SVG_STAGE_FILES))
 SVG_COLOR_FILES := $(patsubst build/stage/%.svg, build/svg-color/%.svg, $(SVG_STAGE_FILES))
 
-.PHONY: all package regular-package linux-package osx-package windows-package copy-extra clean
+.PHONY: all update package regular-package linux-package osx-package windows-package copy-extra clean
 
 all: $(REGULAR_FONT) $(OSX_FONT)
+
+update:
+	cp ../twemoji/2/svg/* assets/twemoji-svg/
 
 # Create the operating system specific packages
 package: regular-package linux-package deb-package osx-package windows-package
@@ -138,4 +141,3 @@ build/svg-color: | build
 
 clean:
 	rm -rf build
-
