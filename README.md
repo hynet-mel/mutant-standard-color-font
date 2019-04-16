@@ -10,9 +10,9 @@ applications. Regular B&W outline emoji are included for backwards/fallback
 compatibility.
 
 [1]: https://github.com/twitter/twemoji
-[2]: http://unicode.org/emoji/charts/emoji-zwj-sequences.html
-[3]: http://www.unicode.org/reports/tr51/#Diversity
-[4]: http://www.unicode.org/reports/tr51/#Flags
+[2]: https://unicode.org/emoji/charts/emoji-zwj-sequences.html
+[3]: https://www.unicode.org/reports/tr51/#Diversity
+[4]: https://www.unicode.org/reports/tr51/#Flags
 
 ## Table of Contents
 
@@ -38,8 +38,8 @@ in the [SVGinOT proposal][6] and the [OpenType SVG table specifications][7].
 SVGinOT Font demos (Firefox only):
 
 * https://hacks.mozilla.org/2014/10/svg-colors-in-opentype-fonts/
-* http://xerographer.github.io/reinebow/
-* http://xerographer.github.io/multicoloure/
+* https://xerographer.github.io/reinebow/
+* https://xerographer.github.io/multicoloure/
 
 [6]: https://www.w3.org/2013/10/SVG_in_OpenType/
 [7]: https://www.microsoft.com/typography/otspec/svg.htm
@@ -131,7 +131,7 @@ https://github.com/eosrei/twemoji-color-font/releases
    Color Emoji` font by [using the same internal name][12]. Install and accept
    the warning in Font Book.
 
-A [Homebrew](http://brew.sh) package is available.
+A [Homebrew](https://brew.sh) package is available.
 
 ```sh
 # Tap the caskroom/fonts keg, if needed.
@@ -140,7 +140,7 @@ brew tap caskroom/fonts
 brew cask install font-twitter-color-emoji
 ```
 
-[12]:http://www.macissues.com/2014/11/21/how-to-change-the-default-system-font-in-mac-os-x/
+[12]:https://www.macissues.com/2014/11/21/how-to-change-the-default-system-font-in-mac-os-x/
 
 *Reiterating: Only FireFox supports the SVGinOT color emoji for now. Safari and
 Chrome will use the fallback black and white emoji.*
