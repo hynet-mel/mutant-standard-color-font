@@ -12,11 +12,15 @@ SET FINAL_EMJ_FONT_PATH="%FINAL_EMJ_FONT_PATH_NO_QUOTES%"
 SET FINAL_FONT_PATH_NO_QUOTES=%CD%\Segoe UI Symbol with Twemoji.ttf
 SET FINAL_FONT_PATH="%FINAL_FONT_PATH_NO_QUOTES%"
 
+IF NOT EXIST %EMOJI_FONT_PATH% (
+    ECHO TwitterColorEmoji-SVGinOT.ttf not found, have you extracted the files from the archive?
+)
+
 ECHO Checking if Segoe UI Emoji is installed
 
 REM Windows 8 uses Segoe UI Emoji in addition to Symbol
 REM Windows 7 only uses Segoe UI Symbol
-REM We have to replace _both_ 
+REM We have to replace _both_
 ECHO Checking if Segoe UI Symbol is installed.
 
 IF NOT EXIST %MS_FONT_PATH% (
@@ -62,7 +66,7 @@ IF EXIST %MS_EMOJI_FONT_PATH% (
 )
 
 ECHO Creating new Segoe UI Symbol font from Twitter Color Emoji
-REM Merge Segoe UI Symbol into TwitterColorEmoji, this keeps 
+REM Merge Segoe UI Symbol into TwitterColorEmoji, this keeps
 REM TwitterColorEmoji's glyph ids intact for the 'SVG ' table data
 pyftmerge %EMOJI_FONT_PATH% %MS_FONT_PATH%
 ECHO Dumping SVG emojis
