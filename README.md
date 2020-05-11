@@ -169,7 +169,7 @@ in Windows 7, just Segoe UI Symbol) and install them for you. Running the
 install script requires both [Python][16] and pip in the PATH.
 
 1. Download the most recent Python 3 for Windows: https://www.python.org/downloads/windows/
-2. Start the installer, select "Add Python 3.6 to PATH" and finish the install process.
+2. Start the installer, select "Add Python 3.6 to PATH", finish the install process, then reboot.
 3. Download Twitter Color Emoji Windows package from releases:
 https://github.com/eosrei/twemoji-color-font/releases/download/v12.0.1/TwitterColorEmoji-SVGinOT-Win-12.0.1.zip
 4. Uncompress the file.
@@ -186,7 +186,7 @@ fallback black and white emoji.*
 ## Uninstalling
 
 There are uninstall scripts for [Windows][17] and [Linux][18] available. They
-are also included in the release files. 
+are also included in the release files.
 
 [17]:windows/uninstall.cmd
 [18]:linux/uninstall.sh
