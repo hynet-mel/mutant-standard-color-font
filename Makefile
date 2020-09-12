@@ -8,7 +8,7 @@ TMP := /dev/shm
 # Where to find scfbuild?
 SCFBUILD := SCFBuild/bin/scfbuild
 
-VERSION := 12.0.1
+VERSION := 13.0.1
 FONT_PREFIX := TwitterColorEmoji-SVGinOT
 REGULAR_FONT := build/$(FONT_PREFIX).ttf
 REGULAR_PACKAGE := build/$(FONT_PREFIX)-$(VERSION)
@@ -19,16 +19,16 @@ DEB_PACKAGE := fonts-twemoji-svginot
 WINDOWS_TOOLS := windows
 WINDOWS_PACKAGE := build/$(FONT_PREFIX)-Win-$(VERSION)
 
-ifeq (, $(shell command -v inkscape))
-$(error "No inkscape in PATH, it is required for fallback b/w variant.")
-else
-ifeq (0, $(shell inkscape --without-gui 1>&2 2> /dev/null; echo $$?))
-# Inkscape < 1.0
-INKSCAPE_EXPORT_FLAGS := --without-gui --export-png
-else
-# Inkscape ≥ 1.0
-INKSCAPE_EXPORT_FLAGS := --export-filename
+ifeq (, $(shell which inkscape))
+	$(error "No inkscape in PATH, it is required for fallback b/w variant.")
 endif
+
+ifeq (0, $(shell inkscape --without-gui 1>&2 2> /dev/null; echo $$?))
+	# Inkscape < 1.0
+	INKSCAPE_EXPORT_FLAGS := --without-gui --export-png
+else
+	# Inkscape ≥ 1.0
+	INKSCAPE_EXPORT_FLAGS := --export-filename
 endif
 
 # There are two SVG source directories to keep the assets separate
@@ -48,10 +48,10 @@ SVG_COLOR_FILES := $(patsubst build/stage/%.svg, build/svg-color/%.svg, $(SVG_ST
 
 .PHONY: all update package regular-package linux-package osx-package windows-package copy-extra clean
 
-all: $(REGULAR_FONT) $(OSX_FONT)
+all: package
 
 update:
-	cp ../twemoji/2/svg/* assets/twemoji-svg/
+	cp ../twemoji/assets/svg/* assets/twemoji-svg/
 
 # Create the operating system specific packages
 package: regular-package linux-package deb-package osx-package windows-package
