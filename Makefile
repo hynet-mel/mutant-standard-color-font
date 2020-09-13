@@ -23,7 +23,7 @@ ifeq (, $(shell which inkscape))
 	$(error "No inkscape in PATH, it is required for fallback b/w variant.")
 endif
 
-ifeq (0, $(shell inkscape --without-gui 1>&2 2> /dev/null; echo $$?))
+ifeq (0, $(shell inkscape --export-png 1>&2 2> /dev/null; echo $$?))
 	# Inkscape < 1.0
 	INKSCAPE_EXPORT_FLAGS := --without-gui --export-png
 else
