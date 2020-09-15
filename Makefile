@@ -9,7 +9,8 @@ TMP := /dev/shm
 SCFBUILD := SCFBuild/bin/scfbuild
 
 VERSION := 13.1.0
-FONT_PREFIX := TwitterColorEmoji-SVGinOT
+FONT_PREFIX := TwitterColorEmoji-SVGinOT-ThickFallback
+
 REGULAR_FONT := build/$(FONT_PREFIX).ttf
 REGULAR_PACKAGE := build/$(FONT_PREFIX)-$(VERSION)
 MACOS_FONT := build/$(FONT_PREFIX)-MacOS.ttf
@@ -115,17 +116,43 @@ copy-extra: build/svg-bw
 # Create black SVG traces of the color SVGs to use as glyphs.
 # 1. Make the Twemoji SVG into a PNG with Inkscape
 # 2. Make the PNG into a BMP with ImageMagick and add margin by increasing the
-#    canvas size to allow the outer "stroke" to fit.
+#	canvas size to allow the outer "stroke" to fit.
 # 3. Make the BMP into a Edge Detected PGM with mkbitmap
 # 4. Make the PGM into a black SVG trace with potrace
 build/svg-bw/%.svg: build/staging/%.svg | build/svg-bw
 	inkscape -w 1000 -h 1000 $(INKSCAPE_EXPORT_FLAGS) $(TMP)/$(*F).png $<
-	convert $(TMP)/$(*F).png -gravity center -extent 1066x1066 $(TMP)/$(*F).bmp
-	rm $(TMP)/$(*F).png
-	mkbitmap -g -s 1 -f 10 -o $(TMP)/$(*F).pgm $(TMP)/$(*F).bmp
-	rm $(TMP)/$(*F).bmp
+	convert $(TMP)/$(*F).png -level 0%,115% -background "#FFFFFF" -gravity center -extent 1050x1050 +antialias -colorspace Gray -blur 3 $(TMP)/$(*F)_gray.bmp
+	convert $(TMP)/$(*F)_gray.bmp -threshold 10% -morphology EdgeIn:12 Disk $(TMP)/$(*F)_threshold_1.pgm
+	convert $(TMP)/$(*F)_gray.bmp -threshold 20% -morphology EdgeIn:12 Disk $(TMP)/$(*F)_threshold_2.pgm
+	convert $(TMP)/$(*F)_gray.bmp -threshold 30% $(TMP)/$(*F)_threshold_3.pgm
+	convert $(TMP)/$(*F)_gray.bmp -threshold 40% -morphology EdgeOut:12 Disk -negate $(TMP)/$(*F)_threshold_4.pgm
+	convert $(TMP)/$(*F)_gray.bmp -threshold 51% -morphology EdgeOut:12 Disk -negate $(TMP)/$(*F)_threshold_5.pgm
+	convert $(TMP)/$(*F)_gray.bmp -threshold 60% -morphology EdgeOut:12 Disk -negate $(TMP)/$(*F)_threshold_6.pgm
+	convert $(TMP)/$(*F)_gray.bmp -threshold 70% -morphology EdgeOut:12 Disk -negate $(TMP)/$(*F)_threshold_7.pgm
+	convert $(TMP)/$(*F)_gray.bmp -threshold 80% -morphology EdgeOut:12 Disk -negate $(TMP)/$(*F)_threshold_8.pgm
+	convert $(TMP)/$(*F)_gray.bmp -threshold 90% -morphology EdgeOut:12 Disk -negate $(TMP)/$(*F)_threshold_9.pgm
+	convert $(TMP)/$(*F)_threshold_3.pgm \
+		$(TMP)/$(*F)_threshold_1.pgm -compose Screen -composite \
+		$(TMP)/$(*F)_threshold_2.pgm -compose Screen -composite \
+		$(TMP)/$(*F)_threshold_4.pgm -compose Multiply -composite \
+		$(TMP)/$(*F)_threshold_5.pgm -compose Multiply -composite \
+		$(TMP)/$(*F)_threshold_6.pgm -compose Multiply -composite \
+		$(TMP)/$(*F)_threshold_7.pgm -compose Multiply -composite \
+		$(TMP)/$(*F)_threshold_8.pgm -compose Multiply -composite \
+		$(TMP)/$(*F)_threshold_9.pgm -compose Multiply -composite \
+		$(TMP)/$(*F).pgm
+	rm $(TMP)/$(*F).png $(TMP)/$(*F)_gray.bmp
 	potrace --flat -s --height 2048pt --width 2048pt -o $@ $(TMP)/$(*F).pgm
-	rm $(TMP)/$(*F).pgm
+	rm $(TMP)/$(*F).pgm \
+		$(TMP)/$(*F)_threshold_1.pgm \
+		$(TMP)/$(*F)_threshold_2.pgm \
+		$(TMP)/$(*F)_threshold_3.pgm \
+		$(TMP)/$(*F)_threshold_4.pgm \
+		$(TMP)/$(*F)_threshold_5.pgm \
+		$(TMP)/$(*F)_threshold_6.pgm \
+		$(TMP)/$(*F)_threshold_7.pgm \
+		$(TMP)/$(*F)_threshold_8.pgm \
+		$(TMP)/$(*F)_threshold_9.pgm
 
 # Optimize/clean the color SVG files
 build/svg-color/%.svg: build/staging/%.svg | build/svg-color

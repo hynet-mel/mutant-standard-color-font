@@ -1,5 +1,5 @@
 # SCFBuild configuration file for Twitter Color Emoji
-output_file: build/TwitterEmojiColor-SVGinOT.ttf
+output_file: build/TwitterEmojiColor-SVGinOT-ThickFallback.ttf
 verbose: False
 glyph_svg_dir: build/svg-bw
 color_svg_dir: build/svg-color
@@ -19,7 +19,7 @@ table_name:
     Copyright 2021 Twitter, Inc. CC-BY-4.0
   family: Twitter Color Emoji
   # Subfamily is also called Style or Weight. Often set to: Regular
-  subfamily: Regular
+  subfamily: Thick
   unique_id: Twitter Color Emoji SVGinOT eosrei.net
   full_name: Twitter Color Emoji SVGinOT
   #version:
