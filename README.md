@@ -7,13 +7,14 @@ A color and B&W emoji SVGinOT font built from the
 The font works in all operating systems, but will *currently* only show color
 emoji in Firefox, Thunderbird, Photoshop CC 2017, and Windows Edge V38.14393+.
 This is not a limitation of the font, but of the operating systems and
-applications. Regular B&W outline emoji are included for backwards/fallback
-compatibility.
+applications. [Why doesn't it work on Chrome?][why-not-chrome] Regular B&W
+outline emoji are included for backwards/fallback compatibility.
 
 [1]: https://github.com/twitter/twemoji
 [2]: https://unicode.org/emoji/charts/emoji-zwj-sequences.html
 [3]: https://www.unicode.org/reports/tr51/#Diversity
 [4]: https://www.unicode.org/reports/tr51/#Flags
+[why-not-chrome]: https://bugs.chromium.org/p/chromium/issues/detail?id=306078
 
 ## Table of Contents
 
