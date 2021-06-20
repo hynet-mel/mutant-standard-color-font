@@ -12,8 +12,8 @@ VERSION := 13.0.1
 FONT_PREFIX := TwitterColorEmoji-SVGinOT
 REGULAR_FONT := build/$(FONT_PREFIX).ttf
 REGULAR_PACKAGE := build/$(FONT_PREFIX)-$(VERSION)
-OSX_FONT := build/$(FONT_PREFIX)-OSX.ttf
-OSX_PACKAGE := build/$(FONT_PREFIX)-OSX-$(VERSION)
+MACOS_FONT := build/$(FONT_PREFIX)-MACOS.ttf
+MACOS_PACKAGE := build/$(FONT_PREFIX)-MACOS-$(VERSION)
 LINUX_PACKAGE := $(FONT_PREFIX)-Linux-$(VERSION)
 DEB_PACKAGE := fonts-twemoji-svginot
 WINDOWS_TOOLS := windows
@@ -46,7 +46,7 @@ SVG_STAGE_FILES := $(patsubst $(SVG_EXTRA)/%.svg, build/stage/%.svg, $(SVG_STAGE
 SVG_BW_FILES := $(patsubst build/stage/%.svg, build/svg-bw/%.svg, $(SVG_STAGE_FILES))
 SVG_COLOR_FILES := $(patsubst build/stage/%.svg, build/svg-color/%.svg, $(SVG_STAGE_FILES))
 
-.PHONY: all update package regular-package linux-package osx-package windows-package copy-extra clean
+.PHONY: all update package regular-package linux-package macos-package windows-package copy-extra clean
 
 all: package
 
@@ -54,7 +54,7 @@ update:
 	cp ../twemoji/assets/svg/* assets/twemoji-svg/
 
 # Create the operating system specific packages
-package: regular-package linux-package deb-package osx-package windows-package
+package: regular-package linux-package deb-package macos-package windows-package
 
 regular-package: $(REGULAR_FONT)
 	rm -f $(REGULAR_PACKAGE).zip
@@ -83,14 +83,14 @@ deb-package: linux-package
 	#debuild -S
 	#dput ppa:eosrei/fonts $(DEB_PACKAGE)_$(VERSION).changes
 
-osx-package: $(OSX_FONT)
-	rm -f $(OSX_PACKAGE).zip
-	rm -rf $(OSX_PACKAGE)
-	mkdir $(OSX_PACKAGE)
-	cp $(OSX_FONT) $(OSX_PACKAGE)
-	cp LICENSE* $(OSX_PACKAGE)
-	cp README.md $(OSX_PACKAGE)
-	7z a -tzip -mx=9 $(OSX_PACKAGE).zip ./$(OSX_PACKAGE)
+macos-package: $(MACOS_FONT)
+	rm -f $(MACOS_PACKAGE).zip
+	rm -rf $(MACOS_PACKAGE)
+	mkdir $(MACOS_PACKAGE)
+	cp $(MACOS_FONT) $(MACOS_PACKAGE)
+	cp LICENSE* $(MACOS_PACKAGE)
+	cp README.md $(MACOS_PACKAGE)
+	7z a -tzip -mx=9 $(MACOS_PACKAGE).zip ./$(MACOS_PACKAGE)
 
 windows-package: $(REGULAR_FONT)
 	rm -f $(WINDOWS_PACKAGE).zip
@@ -106,8 +106,8 @@ windows-package: $(REGULAR_FONT)
 $(REGULAR_FONT): $(SVG_BW_FILES) $(SVG_COLOR_FILES) copy-extra
 	$(SCFBUILD) -c scfbuild.yml -o $(REGULAR_FONT) --font-version="$(VERSION)"
 
-$(OSX_FONT): $(SVG_BW_FILES) $(SVG_COLOR_FILES) copy-extra
-	$(SCFBUILD) -c scfbuild-osx.yml -o $(OSX_FONT) --font-version="$(VERSION)"
+$(MACOS_FONT): $(SVG_BW_FILES) $(SVG_COLOR_FILES) copy-extra
+	$(SCFBUILD) -c scfbuild-macos.yml -o $(MACOS_FONT) --font-version="$(VERSION)"
 
 copy-extra: build/svg-bw
 	cp $(SVG_EXTRA_BW)/* build/svg-bw/

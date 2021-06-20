@@ -21,7 +21,7 @@ outline emoji are included for backwards/fallback compatibility.
 * [Examples](#examples)
 * [What is SVGinOT?](#what-is-svginot)
 * [Install on Linux](#install-on-linux)
-* [Install on OS X](#install-on-os-x)
+* [Install on MacOS](#install-on-macos)
 * [Install on Windows](#install-on-windows)
 * [Uninstalling](#uninstalling)
 * [Building](#building)
@@ -122,14 +122,14 @@ layman -a jorgicio
 emerge twemoji-color-font
 ```
 
-## Install on OS X
+## Install on MacOS
 Both SVGinOT versions are available from releases:
 https://github.com/eosrei/twemoji-color-font/releases
 
 1. `TwitterColorEmoji-SVGinOT-13.0.1.zip` - The regular version of the font
-   installs like any other font and can be specifically selected, but OS X will
+   installs like any other font and can be specifically selected, but MacOS will
    default to the `Apple Color Emoji` font for emojis.
-2. `TwitterColorEmoji-SVGinOT-OSX-13.0.1.zip` - A hack to replace the `Apple
+2. `TwitterColorEmoji-SVGinOT-MacOS-13.0.1.zip` - A hack to replace the `Apple
    Color Emoji` font by [using the same internal name][12]. Install and accept
    the warning in Font Book.
 

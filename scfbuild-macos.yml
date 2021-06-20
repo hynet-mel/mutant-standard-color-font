@@ -1,5 +1,5 @@
 # SCFBuild configuration file for Twitter Color Emoji
-output_file: build/TwitterEmojiColor-SVGinOT-OSX.ttf
+output_file: build/TwitterEmojiColor-SVGinOT-MacOS.ttf
 verbose: False
 glyph_svg_dir: build/svg-bw
 color_svg_dir: build/svg-color
