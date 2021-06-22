@@ -15,8 +15,8 @@ color_transform: translate(0 -6.75)
 width_space: 561
 table_name:
   copyright: >
-    Copyright 2019 Brad Erickson CC-BY-4.0
-    Copyright 2019 Twitter, Inc. CC-BY-4.0
+    Copyright 2021 Brad Erickson CC-BY-4.0
+    Copyright 2021 Twitter, Inc. CC-BY-4.0
   family: Twitter Color Emoji
   # Subfamily is also called Style or Weight. Often set to: Regular
   subfamily: Regular

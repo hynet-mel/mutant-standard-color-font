@@ -8,7 +8,7 @@ TMP := /dev/shm
 # Where to find scfbuild?
 SCFBUILD := SCFBuild/bin/scfbuild
 
-VERSION := 13.0.1
+VERSION := 13.1.0
 FONT_PREFIX := TwitterColorEmoji-SVGinOT
 REGULAR_FONT := build/$(FONT_PREFIX).ttf
 REGULAR_PACKAGE := build/$(FONT_PREFIX)-$(VERSION)
@@ -80,8 +80,8 @@ deb-package: linux-package
 	cp build/$(LINUX_PACKAGE).tar.gz build/$(DEB_PACKAGE)_$(VERSION).orig.tar.gz
 	cp -R build/$(LINUX_PACKAGE) build/$(DEB_PACKAGE)-$(VERSION)
 	cd build/$(DEB_PACKAGE)-$(VERSION); debuild -us -uc
-	#debuild -S
-	#dput ppa:eosrei/fonts $(DEB_PACKAGE)_$(VERSION).changes
+	# cd build/$(DEB_PACKAGE)-$(VERSION); debuild -S
+	# cd build dput ppa:eosrei/fonts $(DEB_PACKAGE)_$(VERSION)_source.changes
 
 macos-package: $(MACOS_FONT)
 	rm -f $(MACOS_PACKAGE).zip

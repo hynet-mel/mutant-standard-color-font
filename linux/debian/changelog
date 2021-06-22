@@ -1,3 +1,9 @@
+fonts-twemoji-svginot (13.1.0-1) bionic; urgency=medium
+
+  * Update to twemoji 13.1.0.
+
+ -- Brad Erickson <eosrei@gmail.com>  Sun, 20 Jun 2021 16:58:17 -0700
+
 fonts-twemoji-svginot (13.0.1-1) bionic; urgency=medium
 
   * Update to twemoji 13.0.1.
