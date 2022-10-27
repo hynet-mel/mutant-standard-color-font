@@ -20,15 +20,15 @@ WINDOWS_TOOLS := windows
 WINDOWS_PACKAGE := build/$(FONT_PREFIX)-Win-$(VERSION)
 
 ifeq (, $(shell which inkscape))
-	$(error "No inkscape in PATH, it is required for fallback b/w variant.")
+  $(error "No inkscape in PATH, it is required for fallback b/w variant.")
 endif
 
 ifeq (0, $(shell inkscape --export-png 1>&2 2> /dev/null; echo $$?))
-	# Inkscape < 1.0
-	INKSCAPE_EXPORT_FLAGS := --without-gui --export-png
+  # Inkscape < 1.0
+  INKSCAPE_EXPORT_FLAGS := --without-gui --export-png
 else
-	# Inkscape ≥ 1.0
-	INKSCAPE_EXPORT_FLAGS := --export-filename
+  # Inkscape ≥ 1.0
+  INKSCAPE_EXPORT_FLAGS := --export-filename
 endif
 
 # There are two SVG source directories to keep the assets separate
