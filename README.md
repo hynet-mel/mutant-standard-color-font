@@ -5,7 +5,7 @@ A color and B&W emoji SVG-OpenType / SVGinOT font built from the
 [skin tone diversity][3] and [country flags][4].
 
 The font works in all operating systems, but will *currently* only show color
-emoji in Firefox, Thunderbird, Photoshop CC 2017+, and Windows Edge V38.14393+.
+emoji in Firefox, Thunderbird, and Photoshop CC 2017+.
 This is not a limitation of the font, but of the operating systems and
 applications. [Why doesn't it work on Chrome?][why-not-chrome] Regular B&W
 outline emoji are included for backwards/fallback compatibility.
@@ -49,7 +49,7 @@ SVGinOT Font demos (Firefox only):
 
 ## Install on Linux
 The font can be installed for a user or system-wide. Get the latest version
-from releases: https://github.com/eosrei/twemoji-color-font/releases
+from releases: https://github.com/13rac1/twemoji-color-font/releases
 
 *Note: This requires `Bitstream Vera` is installed and will change your
 systems default serif, sans-serif and monospace fonts.*
@@ -79,7 +79,7 @@ want to try them. Primary issues are the 0x2639 and 0x263a characters.
   [Note: May cause crashes in Firefox <48.][11]
 
 [8]:https://bugzilla.gnome.org/show_bug.cgi?id=757785
-[9]:https://github.com/eosrei/emojione-color-font/issues/31
+[9]:https://github.com/13rac1/emojione-color-font/issues/31
 [10]:https://bugzilla.mozilla.org/show_bug.cgi?id=1245811
 [11]:https://bugzilla.mozilla.org/show_bug.cgi?id=1266341
 
@@ -87,11 +87,11 @@ want to try them. Primary issues are the 0x2639 and 0x263a characters.
 Install for the current user without root:
 ```sh
 # 1. Download the latest version
-wget https://github.com/eosrei/twemoji-color-font/releases/download/v13.1.0/TwitterColorEmoji-SVGinOT-Linux-13.1.0.tar.gz
+wget https://github.com/13rac1/twemoji-color-font/releases/download/v14.0.2/TwitterColorEmoji-SVGinOT-Linux-14.0.2.tar.gz
 # 2. Uncompress the file
-tar zxf TwitterColorEmoji-SVGinOT-Linux-13.1.0.tar.gz
+tar zxf TwitterColorEmoji-SVGinOT-Linux-14.0.2.tar.gz
 # 3. Run the installer
-cd TwitterColorEmoji-SVGinOT-Linux-13.1.0
+cd TwitterColorEmoji-SVGinOT-Linux-14.0.2
 ./install.sh
 ```
 
@@ -124,12 +124,12 @@ emerge twemoji-color-font
 
 ## Install on MacOS
 Both SVGinOT versions are available from releases:
-https://github.com/eosrei/twemoji-color-font/releases
+https://github.com/13rac1/twemoji-color-font/releases
 
-1. `TwitterColorEmoji-SVGinOT-13.1.0.zip` - The regular version of the font
+1. `TwitterColorEmoji-SVGinOT-14.0.2.zip` - The regular version of the font
    installs like any other font and can be specifically selected, but MacOS will
    default to the `Apple Color Emoji` font for emojis.
-2. `TwitterColorEmoji-SVGinOT-MacOS-13.1.0.zip` - A hack to replace the `Apple
+2. `TwitterColorEmoji-SVGinOT-MacOS-14.0.2.zip` - A hack to replace the `Apple
    Color Emoji` font by [using the same internal name][12]. Install and accept
    the warning in Font Book.
 
@@ -151,10 +151,11 @@ Chrome will use the fallback black and white emoji.*
 
 ## Install on Windows
 
-There are two standard install options for Windows. Both SVGinOT versions are available
-from releases: https://github.com/eosrei/twemoji-color-font/releases
+There are two standdard install options for Windows. Both SVGinOT versions are available
+from releases: https://github.com/13rac1/twemoji-color-font/releases
 
-You can also use the [Chocolatey package](https://community.chocolatey.org/packages/twemoji) to handle the installation and the future updates.
+You can also use the [Chocolatey package](https://community.chocolatey.org/packages/twemoji)
+to handle the installation and the future updates.
 ```powershell
 choco install twemoji
 ```
@@ -164,7 +165,7 @@ choco install twemoji
 The regular version of the font installs like any other font and can be
 specifically selected, but Windows will default to the `Segoe UI Emoji`
 font for emoji characters. Download:
-https://github.com/eosrei/twemoji-color-font/releases/download/v13.1.0/TwitterColorEmoji-SVGinOT-13.1.0.zip
+https://github.com/13rac1/twemoji-color-font/releases/download/v14.0.2/TwitterColorEmoji-SVGinOT-14.0.2.zip
 
 ### Replace the default Windows emoji fonts
 
@@ -179,7 +180,7 @@ install script requires both [Python][16] and pip in the PATH.
 1. Download the most recent Python 3 for Windows: https://www.python.org/downloads/windows/
 2. Start the installer, select "Add Python 3.6 to PATH", finish the install process, then reboot.
 3. Download Twitter Color Emoji Windows package from releases:
-https://github.com/eosrei/twemoji-color-font/releases/download/v13.1.0/TwitterColorEmoji-SVGinOT-Win-13.1.0.zip
+https://github.com/13rac1/twemoji-color-font/releases/download/v14.0.2/TwitterColorEmoji-SVGinOT-Win-14.0.2.zip
 4. Uncompress the file.
 5. Open the new TwitterColorEmoji directory.
 6. Run install.cmd. *Note: This will take some time.*
@@ -230,7 +231,7 @@ devscripts python3-fontforge python3-pip python3-yaml imagemagick \
 git make debhelper build-essential
 sudo npm install -g svgo
 sudo pip3 install fonttools
-git clone https://github.com/eosrei/twemoji-color-font.git
+git clone https://github.com/13rac1/twemoji-color-font.git
 cd twemoji-color-font
 git clone https://github.com/13rac1/scfbuild.git SCFBuild
 make -j 4

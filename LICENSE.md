@@ -1,7 +1,7 @@
 # Licenses
 
-* Copyright 2016 Brad Erickson CC-BY-4.0/MIT
-* Copyright 2016 Twitter, Inc. CC-BY-4.0
+* Copyright 2016-2022 Brad Erickson CC-BY-4.0/MIT
+* Copyright 2016-2022 Twitter, Inc. CC-BY-4.0
 * Copyright 2013 Joe Loughry and Terence Eden MIT
 
 ## Artwork

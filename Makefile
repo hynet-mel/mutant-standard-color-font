@@ -8,7 +8,7 @@ TMP := /dev/shm
 # Where to find scfbuild?
 SCFBUILD := SCFBuild/bin/scfbuild
 
-VERSION := 13.1.0
+VERSION := 14.0.2
 FONT_PREFIX := TwitterColorEmoji-SVGinOT
 REGULAR_FONT := build/$(FONT_PREFIX).ttf
 REGULAR_PACKAGE := build/$(FONT_PREFIX)-$(VERSION)
@@ -46,9 +46,15 @@ SVG_STAGE_FILES := $(patsubst $(SVG_EXTRA)/%.svg, build/stage/%.svg, $(SVG_STAGE
 SVG_BW_FILES := $(patsubst build/stage/%.svg, build/svg-bw/%.svg, $(SVG_STAGE_FILES))
 SVG_COLOR_FILES := $(patsubst build/stage/%.svg, build/svg-color/%.svg, $(SVG_STAGE_FILES))
 
+CPU_CORES := $(shell cat /proc/cpuinfo | grep processor | wc -l)
+
 .PHONY: all update package regular-package linux-package macos-package windows-package copy-extra clean
 
 all: package
+
+# Run the build concurrently against all available cores
+fast:
+	make -j $(CPU_CORES)
 
 update:
 	cp ../twemoji/assets/svg/* assets/twemoji-svg/
