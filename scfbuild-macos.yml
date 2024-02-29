@@ -1,5 +1,5 @@
-# SCFBuild configuration file for Twitter Color Emoji
-output_file: build/TwitterEmojiColor-SVGinOT-MacOS.ttf
+# SCFBuild configuration file for Mutant Standard Emoji
+output_file: build/MutantStandardColor-SVGinOT-MacOS.ttf
 verbose: False
 glyph_svg_dir: build/svg-bw
 color_svg_dir: build/svg-color
@@ -15,23 +15,28 @@ color_transform: translate(0 -6.75)
 width_space: 561
 table_name:
   copyright: >
+    Copyright 2017-2023 Dzuk CC-BY-NC-SA-4.0
     Copyright 2022 Brad Erickson CC-BY-4.0
     Copyright 2022 Twitter, Inc. CC-BY-4.0
-  family: Twitter Color Emoji
+  family: Mutant Standard Emoji
   # Subfamily is also called Style or Weight. Often set to: Regular
   subfamily: Regular
-  unique_id: Twitter Color Emoji SVGinOT 13rac1.com
-  full_name: Twitter Color Emoji SVGinOT
+  unique_id: Mutant Standard Emoji SVGinOT hyena.network
+  full_name: Mutant Standard Emoji SVGinOT
   #version:
   # Use the same postscript name as the Apple Color Emoji font to overide it.
   postscript_name: AppleColorEmoji
   #trademark:
-  manufacturer: 13rac1
-  designer: Twitter, Inc.
+  manufacturer: hynet-mel
+  designer: >
+    Dzuk
+    Twitter, Inc
   description: >
-    A SVGinOT color emoji font using the Twitter Emoji for Everyone set:
-    https://github.com/13rac1/twemoji-color-font
-  url_vendor: https://github.com/13rac1/twemoji-color-font
-  url_designer: https://github.com/twitter/twemoji
-  license: Creative Commons Attribution 4.0 International
-  url_license: http://creativecommons.org/licenses/by/4.0/
+    Mutant Standard Emoji with Twitter Emoji fallback:
+    https://github.com/hynet-mel/mutant-standard-color-font
+    Credit and much love to eosrei for their contribution to the original Twemoji color font project <3 https://github.com/eosrei/twemoji-color-font
+    Keep in mind that non-unicode Standard emoji in this font will not be readable to the visually impaired.
+    Please use them in a careful and considerate way.
+  url_vendor: https://github.com/hynet-mel/mutant-standard-color-font
+  license: Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+  url_license: https://creativecommons.org/licenses/by-nc-sa/4.0/
